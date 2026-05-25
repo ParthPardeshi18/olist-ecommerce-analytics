@@ -1,0 +1,54 @@
+OLIST BUSINESS ANALYTICS — PROJECT SUMMARY
+============================================
+
+DATASET OVERVIEW
+  Source:       Olist Brazilian E-Commerce (Kaggle)
+  Tables:       9 CSV files merged into master dataframe
+  Rows:         113,425 (master_df) from 99,441 unique orders
+  Customers:    96,096 unique | Sellers: 3,095 active
+  Date Range:   September 2016 to October 2018
+  Total GMV:    R$ 16,008,872
+
+MODEL PERFORMANCE
+  Logistic Regression (baseline): AUC = 0.671
+  XGBoost (tuned):                AUC = 0.707 (+5.4% improvement)
+  Optimal Threshold:              0.477 (Youden's J statistic)
+  At threshold: 65% recall, 14.2% precision on late orders
+
+TOP 5 BUSINESS INSIGHTS
+  1. SELLER CONCENTRATION RISK: Gini coefficient of 0.79 — the top 18% of
+     sellers generate 80% of revenue. Losing a handful of top performers
+     could devastate platform GMV. Seller development programs for mid-tier
+     sellers are essential for revenue diversification.
+
+  2. DELIVERY SCALABILITY BOTTLENECK: On-time delivery rate dropped from
+     95.5% (H1 2017) to 90.8% (2018), with a significant negative correlation
+     (r=-0.54) between order volume and on-time rate. The platform is
+     growing faster than its logistics capacity — this will compound.
+
+  3. REVIEW SCORE DAMAGE FROM DELAYS: Late delivery costs an average of
+     1.67 review stars (4.22 on-time vs 2.55 late). Orders >14 days late
+     average just 1.61 stars. At 8,317 late orders, this represents
+     massive reputational damage and likely suppresses repeat purchases.
+
+  4. RIO DE JANEIRO RETENTION RISK: RJ is the 2nd-highest revenue state
+     (R$2.5M+) but has the worst late delivery rate among top-5 states
+     at 13.5%. This mismatch between revenue importance and delivery
+     quality makes RJ the highest-priority market for logistics investment.
+
+  5. SP SUPPLY CHAIN DOMINANCE: SP sellers fulfill 70.8% of ALL orders
+     nationally, and the SP-to-SP route alone accounts for 31.8% of
+     order volume. This geographic concentration creates efficiency but
+     also a single-point-of-failure risk for the entire marketplace.
+
+KEY RECOMMENDATIONS BY PHASE
+  Phase 2 (Revenue):   Promote 6+ installment credit card options —
+                        they drive 39% of CC revenue
+  Phase 3 (Delivery):  Invest in logistics for Northern states (RR, AM, PA)
+                        where delivery takes 3x longer than SP
+  Phase 4 (Geography): Develop seller bases in MG and PR to diversify
+                        supply chain away from SP dependency
+  Phase 5 (Segments):  Champions (29.6% of customers) generate 57.3% of
+                        revenue — retention investment here has highest ROI
+  Phase 6 (Model):     Deploy XGBoost predictor to flag ~1,787 at-risk
+                        orders/month for proactive customer communication
