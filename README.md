@@ -1,93 +1,249 @@
-# Olist Business Analytics
+<!-- =========================
+        ANIMATED HEADER
+========================= -->
 
-End-to-end business analytics project on the **Olist Brazilian E-Commerce dataset** (99K+ orders, 9 tables, Sep 2016 – Oct 2018). Covers revenue analysis, delivery operations, geospatial mapping, customer segmentation, and ML-based late delivery prediction — all with publication-quality visualizations and actionable business insights.
+<div align="center">
 
-## Key Findings
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:6a11cb,100:2575fc&height=250&section=header&text=Olist%20E-Commerce%20Analytics&fontSize=45&fontColor=ffffff&animation=fadeIn&fontAlignY=40" />
 
-1. **Seller Concentration Risk** — Gini coefficient 0.79: the top 18% of sellers generate 80% of platform revenue. A seller development program for mid-tier sellers is critical for diversification.
+#  Olist E-Commerce Analytics
 
-2. **Delivery Scalability Bottleneck** — On-time rate dropped from 95.5% to 90.8% as order volume grew (r = -0.54 correlation). Logistics capacity is not scaling with demand.
+### Transforming Raw E-Commerce Data into Business Intelligence Insights
 
-3. **Late Delivery Costs 1.7 Review Stars** — On-time orders average 4.22 stars vs 2.55 for late orders. Orders delayed >14 days average just 1.61 stars, representing significant reputational damage.
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=3000&pause=1000&center=true&vCenter=true&width=900&lines=Data+Analytics+Project;Business+Intelligence+Dashboard;SQL+%7C+Python+%7C+Power+BI;Customer+Behavior+Analysis;Revenue+and+Sales+Insights" />
 
-4. **Rio de Janeiro Retention Risk** — 2nd-highest revenue state but worst late delivery rate (13.5%) among the top 5 states. Highest-priority market for logistics investment.
+<p align="center">
+  <img src="https://img.shields.io/badge/Data%20Analytics-Project-blueviolet?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/SQL-Advanced-blue?style=for-the-badge&logo=mysql" />
+  <img src="https://img.shields.io/badge/Python-Analytics-yellow?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/PowerBI-Dashboard-F2C811?style=for-the-badge&logo=powerbi" />
+  <img src="https://img.shields.io/github/stars/ParthPardeshi18/olist-ecommerce-analytics?style=for-the-badge" />
+</p>
 
-5. **SP Supply Chain Dominance** — SP sellers fulfill 70.8% of all orders nationally. The SP→SP route alone is 31.8% of volume, creating efficiency but also single-point-of-failure risk.
+</div>
 
-## Project Structure
+---
 
+#  Table of Contents
+
+- [ About Project](#-about-project)
+- [ Objectives](#-objectives)
+- [ Business Problems Solved](#-business-problems-solved)
+- [ Tech Stack](#️-tech-stack)
+- [ Dataset Information](#-dataset-information)
+- [ Dashboard Preview](#-dashboard-preview)
+- [ Key Insights](#-key-insights)
+- [ Project Architecture](#️-project-architecture)
+- [ Workflow](#-workflow)
+- [ Screenshots](#-screenshots)
+- [ Future Enhancements](#-future-enhancements)
+- [ Connect With Me](#-connect-with-me)
+
+---
+
+#  About Project
+
+This project focuses on analyzing the **Brazilian Olist E-Commerce Dataset** to uncover valuable business insights related to:
+
+- Customer purchasing behavior
+- Revenue growth trends
+- Seller performance
+- Product category analysis
+- Delivery performance
+- Customer satisfaction
+- Payment patterns
+
+The goal is to transform raw transactional data into actionable insights using modern data analytics and visualization tools.
+
+---
+
+#  Objectives
+
+✔ Analyze overall sales performance  
+✔ Identify top-performing product categories  
+✔ Study customer retention & repeat purchases  
+✔ Understand seller contribution & ratings  
+✔ Analyze payment behavior  
+✔ Visualize trends with interactive dashboards  
+✔ Generate business recommendations
+
+---
+
+#  Business Problems Solved
+
+<div align="center">
+
+| Problem | Solution |
+|---|---|
+| Low customer retention | Repeat customer analysis |
+| Revenue fluctuation | Time-series sales trends |
+| Poor delivery performance | Shipping & delivery KPI tracking |
+| Product optimization | Category-wise sales analysis |
+| Seller performance | Rating & revenue correlation |
+
+</div>
+
+---
+
+# Tech Stack
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=python,mysql,postgresql,pandas,numpy,matplotlib,github,vscode" />
+
+<br><br>
+
+<img src="https://img.shields.io/badge/PowerBI-Dashboard-F2C811?style=for-the-badge&logo=powerbi" />
+<img src="https://img.shields.io/badge/Jupyter-Notebook-orange?style=for-the-badge&logo=jupyter" />
+
+</div>
+
+---
+
+#  Dataset Information
+
+###  Dataset Source
+Brazilian E-Commerce Public Dataset by Olist
+
+###  Dataset Includes
+
+- Orders
+- Customers
+- Sellers
+- Products
+- Reviews
+- Payments
+- Geolocation Data
+
+###  Time Period
+
+2016 – 2018
+
+---
+
+#  Dashboard Preview
+
+<div align="center">
+
+<img src="YOUR_DASHBOARD_IMAGE_LINK" width="900"/>
+
+</div>
+
+---
+
+#  Key Insights
+
+##  Revenue Insights
+- Peak sales observed during seasonal shopping periods
+- Significant growth in repeat customer revenue
+
+##  Product Analysis
+- Bed Bath Table category generated highest sales
+- Health & Beauty maintained stable revenue growth
+
+##  Delivery Insights
+- Faster delivery correlated with higher review scores
+- Delayed orders significantly impacted ratings
+
+##  Customer Satisfaction
+- Most customers rated products between 4 and 5 stars
+- Negative reviews linked with delivery delays
+
+---
+
+#  Project Architecture
+
+<div align="center">
+
+```mermaid
+flowchart LR
+    A[Raw Dataset] --> B[Data Cleaning]
+    B --> C[SQL Analysis]
+    C --> D[Python EDA]
+    D --> E[Visualization]
+    E --> F[Power BI Dashboard]
+    F --> G[Business Insights]
 ```
-olist-analytics/
-├── data/                          # Raw CSV files (9 Olist tables + GeoJSON)
-├── src/
-│   ├── data_ingestion.py          # Phase 1: Load, validate, merge, engineer features
-│   ├── revenue_analysis.py        # Phase 2: GMV trend, categories, payments, Lorenz
-│   ├── delivery_analysis.py       # Phase 3: State performance, delays, reviews, OTR
-│   ├── geo_analysis.py            # Phase 4: Choropleths, seller-customer flows
-│   ├── rfm_segmentation.py        # Phase 5: RFM calculation, K-Means, segment analysis
-│   ├── delay_model.py             # Phase 6: XGBoost late delivery predictor + SHAP
-│   └── app.py                     # Phase 7: Streamlit multi-tab dashboard
-├── outputs/                       # All charts (PNG), maps (HTML), model files
-│   ├── chart01–16_*.png           # 16 publication-quality charts
-│   ├── chart09/10_*choropleth.html # Interactive Folium maps
-│   ├── delay_model.pkl            # Trained XGBoost model
-│   ├── scaler.pkl                 # Feature scaler
-│   ├── rfm_segments.csv           # Customer segment assignments
-│   └── project_summary.txt        # Quantified findings and recommendations
-└── README.md
+
+</div>
+
+---
+
+#  Workflow
+
+```mermaid
+graph TD;
+    A[Data Collection] --> B[Data Cleaning]
+    B --> C[Exploratory Data Analysis]
+    C --> D[SQL Queries]
+    D --> E[Visualization]
+    E --> F[Dashboard Creation]
+    F --> G[Business Recommendations]
 ```
 
-## How to Run
+---
 
-### Prerequisites
+#  Screenshots
 
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn xgboost shap plotly folium streamlit scipy requests joblib
-```
+<div align="center">
 
-### Run Analysis Scripts
+<img src="YOUR_IMAGE_1" width="45%" />
+<img src="YOUR_IMAGE_2" width="45%" />
 
-Each script is self-contained and runs end-to-end:
+<br><br>
 
-```bash
-python src/data_ingestion.py       # Phase 1: Creates master_df.csv
-python src/revenue_analysis.py     # Phase 2: Charts 1-4
-python src/delivery_analysis.py    # Phase 3: Charts 5-8
-python src/geo_analysis.py         # Phase 4: Charts 9-11 + HTML maps
-python src/rfm_segmentation.py     # Phase 5: Charts 12-13 + rfm_segments.csv
-python src/delay_model.py          # Phase 6: Charts 14-16 + model files
-```
+<img src="YOUR_IMAGE_3" width="45%" />
+<img src="YOUR_IMAGE_4" width="45%" />
 
-### Launch Dashboard
+</div>
 
-```bash
-streamlit run src/app.py
-```
+---
 
-Opens a 5-tab interactive dashboard at `http://localhost:8501`:
-- **Executive Overview** — KPI cards, GMV trend, top categories
-- **Geography** — Interactive Brazil map, state selector, seller-customer comparison
-- **Customer Segments** — RFM bubble chart, segment explorer
-- **Delivery Intelligence** — State performance, review-delay scatter
-- **Delay Risk Predictor** — Input form with real-time probability prediction
+#  Future Enhancements
 
-## Tech Stack
+-  Real-time analytics pipeline
+-  Cloud deployment on AWS/GCP
+-  Kafka-based streaming analytics
+-  Machine Learning sales forecasting
+-  Advanced customer segmentation
 
-| Tool | Version | Purpose |
-|------|---------|---------|
-| Python | 3.14 | Core language |
-| pandas | 3.0 | Data manipulation |
-| NumPy | 2.4 | Numerical computing |
-| matplotlib | 3.10 | Static visualizations |
-| seaborn | 0.13 | Statistical plots |
-| scikit-learn | 1.8 | ML pipeline, Logistic Regression, K-Means |
-| XGBoost | 3.2 | Gradient boosted classifier |
-| SHAP | 0.51 | Model interpretability |
-| Plotly | 6.7 | Interactive dashboard charts |
-| Folium | 0.20 | Interactive choropleth maps |
-| Streamlit | 1.57 | Dashboard framework |
-| SciPy | 1.17 | Statistical tests |
+---
 
-## Dataset
+#  Repository Stats
 
-[Olist Brazilian E-Commerce Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) — 9 CSV files containing orders, items, payments, reviews, customers, sellers, products, geolocation, and category translations from a Brazilian marketplace (2016–2018).
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=ParthPardeshi18&show_icons=true&theme=tokyonight&hide_border=true" />
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=ParthPardeshi18&theme=tokyonight&hide_border=true" />
+
+</div>
+
+---
+
+#  Connect With Me
+
+<div align="center">
+
+<a href="https://github.com/Abhay-Chand">
+<img src="https://img.shields.io/badge/GitHub-Abhay--Chand-181717?style=for-the-badge&logo=github" />
+</a>
+
+<a href="https://www.linkedin.com/in/abhay-chand/">
+<img src="https://img.shields.io/badge/LinkedIn-Abhay%20Chand-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
+
+<a href="mailto:chndabhy0164@gmail.com">
+<img src="https://img.shields.io/badge/Gmail-chndabhy0164%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
+</a>
+
+</div>
+---
+
+<div align="center">
+
+## ⭐ If you found this project useful, give it a star!
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2575fc,100:6a11cb&height=120&section=footer"/>
+
+</div>
